@@ -43,15 +43,7 @@ lazy val microservice = (project in file("."))
     ),
     libraryDependencies ++= AppDependencies(),
     inConfig(Test)(testSettings),
-    retrieveManaged := true,
-    // concatenate js
-    Concat.groups := Seq(
-      "javascripts/application.js" ->
-        group(Seq(
-          "javascripts/app.js"
-        ))
-    ),
-    Assets / pipelineStages := Seq(concat)
+    retrieveManaged := true
   )
 
 lazy val testSettings: Seq[Def.Setting[_]] = Seq(
